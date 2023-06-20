@@ -21,20 +21,28 @@ import ProfileScreen from './screens/profile'
 import GettingStartedScreen from './screens/getting-started'
 import LoginScreen from './screens/login'
 import RegisterScreen from './screens/register'
+import EditProfileScreen from './screens/edit-profile'
+import CompletedHistoryScreen from './screens/completed-history'
+import SearchScreen from './screens/search'
+import ChatDetailScreen from './screens/chat-details'
+import SearchResultScreen from './screens/search-results'
+import ProviderDetailScreen from './screens/provider-detail'
+import BookingScreen from './screens/booking'
+import SuccessScreen from './screens/success'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 
 const HomeStack = () => {
   const theme = useTheme()
-  return(
+  return (
     <Stack.Navigator
       initialRouteName={route.homePageRoute}
       screenOptions={{
-        contentStyle:{
+        contentStyle: {
           backgroundColor: '#fff',
         },
-        animation:'slide_from_bottom',
+        animation: 'slide_from_bottom',
         animationDuration: 150,
       }}
     >
@@ -45,19 +53,54 @@ const HomeStack = () => {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name={route.searchPageRoute}
+        component={SearchScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={route.searchResultPageRoute}
+        component={SearchResultScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={route.providerDetailPageRoute}
+        component={ProviderDetailScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={route.bookingPageRoute}
+        component={BookingScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={route.successPageRoute}
+        component={SuccessScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   )
 }
 const ChatStack = () => {
   const theme = useTheme()
-  return(
+  return (
     <Stack.Navigator
       initialRouteName={route.homePageRoute}
       screenOptions={{
-        contentStyle:{
+        contentStyle: {
           backgroundColor: '#fff',
         },
-        animation:'slide_from_bottom',
+        animation: 'slide_from_bottom',
         animationDuration: 150,
       }}
     >
@@ -68,19 +111,26 @@ const ChatStack = () => {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name={route.chatDetailPageRoute}
+        component={ChatDetailScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   )
 }
 const HistoryStack = () => {
   const theme = useTheme()
-  return(
+  return (
     <Stack.Navigator
       initialRouteName={route.homePageRoute}
       screenOptions={{
-        contentStyle:{
+        contentStyle: {
           backgroundColor: '#fff',
         },
-        animation:'slide_from_bottom',
+        animation: 'slide_from_bottom',
         animationDuration: 150,
       }}
     >
@@ -91,19 +141,26 @@ const HistoryStack = () => {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name={route.completedHistoryPageRoute}
+        component={CompletedHistoryScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   )
 }
 const ProfileStack = () => {
   const theme = useTheme()
-  return(
+  return (
     <Stack.Navigator
       initialRouteName={route.homePageRoute}
       screenOptions={{
-        contentStyle:{
+        contentStyle: {
           backgroundColor: '#fff',
         },
-        animation:'slide_from_bottom',
+        animation: 'slide_from_bottom',
         animationDuration: 150,
       }}
     >
@@ -114,142 +171,151 @@ const ProfileStack = () => {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name={route.editProfilePageRoute}
+        component={EditProfileScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   )
 }
 
 export const Tabs = () => {
-    const theme = useTheme()
-    return (
-        <Tab.Navigator
-            screenOptions={{
-                tabBarShowLabel: false,
-                tabBarStyle: {
-                height: 70,
-                elevation: 20,
-                shadowColor: 'hsla(0, 0, 62, 0.1)',
-                shadowOffset: { width: 0, height: -4 },
-                },
-            }}
-        >
-            <Tab.Screen
-                name = "Home"
-                component = {HomeStack}
-                options={{
-                    tabBarIcon: ({focused}) => (
-                        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                           <IconHome
-                                fill={focused ? theme.colors.mainBlue : undefined}
-                                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
-                            /> 
-                        </View>
-                    ),
-                    headerShown: false,
-                }}
-            />
-            <Tab.Screen
-                name = "Chat"
-                component = {ChatStack}
-                options={{
-                    tabBarIcon: ({focused}) => (
-                        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                           <IconChat
-                                fill={focused ? theme.colors.mainBlue : undefined}
-                                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
-                            /> 
-                        </View>
-                    ),
-                    headerShown: false,
-                }}
-            />
-            <Tab.Screen
-                name = "History"
-                component = {HistoryStack}
-                options={{
-                    tabBarIcon: ({focused}) => (
-                        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                           <IconHistory
-                                fill={focused ? theme.colors.mainBlue : undefined}
-                                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
-                            /> 
-                        </View>
-                    ),
-                    headerShown: false,
-                }}
-            />
-            <Tab.Screen
-                name = "Profile"
-                component = {ProfileStack}
-                options={{
-                    tabBarIcon: ({focused}) => (
-                        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                           <IconProfile
-                                fill={focused ? theme.colors.mainBlue : undefined}
-                                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
-                            /> 
-                        </View>
-                    ),
-                    headerShown: false,
-                }}
-            />
-        </Tab.Navigator>
-    )
+  const theme = useTheme()
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 70,
+          elevation: 20,
+          shadowColor: 'hsla(0, 0, 62, 0.1)',
+          shadowOffset: { width: 0, height: -4 },
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeStack}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <IconHome
+                fill={focused ? theme.colors.mainBlue : undefined}
+                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
+              />
+            </View>
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <IconChat
+                fill={focused ? theme.colors.mainBlue : undefined}
+                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
+              />
+            </View>
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="History"
+        component={HistoryStack}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <IconHistory
+                fill={focused ? theme.colors.mainBlue : undefined}
+                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
+              />
+            </View>
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileStack}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <IconProfile
+                fill={focused ? theme.colors.mainBlue : undefined}
+                stroke={focused ? theme.colors.mainBlue : theme.colors.mainBlue}
+              />
+            </View>
+          ),
+          headerShown: false,
+        }}
+      />
+    </Tab.Navigator>
+  )
 }
-export const Navigator = () =>{
-    const theme = useTheme()
-    // const {isAuthenticated} = useAuthStore()
+export const Navigator = () => {
+  const theme = useTheme()
+  // const {isAuthenticated} = useAuthStore()
 
-    return(
-        // ganti initial route dibawah sesuai dengan page mana yang mau kalian edit agar langsung muncul
-        <Stack.Navigator
-            initialRouteName={route.gettingStartedRoute}
-            screenOptions={{
-                contentStyle:{
-                backgroundColor: '#fff',
-                },
-                animation:'slide_from_bottom',
-                animationDuration: 150,
-            }}
-        >
-        {/* is authenticate sementara dimatikan karena berhubungan dengan login dan register */}
-            {/* { isAuthenticated ? ( */}
-                {/* // User is signed in */}
-                <Stack.Screen
-                    name={route.homePageRoute}
-                    component={Tabs}
-                    options={{
-                        headerShown: false,
-                    }}
-                />
-            {/* ) : ( */}
-                {/* // User is not signed in */}
-                {/* <> */}
-                {/* Getting started Route */}
-                    <Stack.Screen
-                        name={route.gettingStartedRoute}
-                        component={GettingStartedScreen}
-                        options={{
-                        headerShown: false,
-                        }}
-                    />
-                    <Stack.Screen
-                        name={route.loginRoute}
-                        component={LoginScreen}
-                        options={{
-                            title: 'Sign In',
-                        }}
-                    />
-                    <Stack.Screen
-                        name={route.registerRoute}
-                        component={RegisterScreen}
-                        options={{
-                            title: 'Register',
-                        }}
-                    />
-                {/* </> */}
-            {/* )} */}
-        </Stack.Navigator>
-    )
+  return (
+    // ganti initial route dibawah sesuai dengan page mana yang mau kalian edit agar langsung muncul
+    <Stack.Navigator
+      initialRouteName={route.gettingStartedRoute}
+      screenOptions={{
+        contentStyle: {
+          backgroundColor: '#fff',
+        },
+        animation: 'fade_from_bottom',
+        animationDuration: 150,
+        headerMode: 'none',
+        headerShown: false,
+      }}
+    >
+      {/* is authenticate sementara dimatikan karena berhubungan dengan login dan register */}
+      {/* { isAuthenticated ? ( */}
+      {/* // User is signed in */}
+      <Stack.Screen
+        name={route.homePageRoute}
+        component={Tabs}
+        options={{
+          headerShown: false,
+        }}
+      />
+      {/* ) : ( */}
+      {/* // User is not signed in */}
+      {/* <> */}
+      {/* Getting started Route */}
+      <Stack.Screen
+        name={route.gettingStartedRoute}
+        component={GettingStartedScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={route.loginRoute}
+        component={LoginScreen}
+        options={{
+          title: 'Sign In',
+        }}
+      />
+      <Stack.Screen
+        name={route.registerRoute}
+        component={RegisterScreen}
+        options={{
+          title: 'Register',
+        }}
+      />
+      {/* </> */}
+      {/* )} */}
+    </Stack.Navigator>
+  )
 }
 
 export default Navigator

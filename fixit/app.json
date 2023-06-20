@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Fixit",
-    "slug": "Fixit",
+    "slug": "fixitid",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/splashscreen/icon.png",
@@ -53,6 +53,12 @@
           "isAccessMediaLocationEnabled": true
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2ce6e717-4735-4796-ac75-79fd91a4cdea"
+      }
+    },
+    "owner": "wh1zkt"
   }
 }
