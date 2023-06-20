@@ -2,7 +2,8 @@
 
 Welcome to Fixit.id's mobile application frontend repository built with React Native and Expo CLI.
 
-For the backend, please refer to the []() repository.
+For Prototype please kindly refer to this link:
+https://bit.ly/fixit-prototype
 
 - [Getting Started](#🛠-setup)
 - [Making a new screen & route](#making-a-new-screen-and-route)
